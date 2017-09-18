@@ -7,9 +7,12 @@ class NewsStory extends Component {
 
     return(
       <li className="article">
+        <a href={this.props.story.url} className="articleLink">
         <h4> {this.props.story.title} </h4>
+        </a>
         <img src={this.props.story.urlToImage} alt ="" height="50" className="articleImage"/>
         <p> {this.props.story.description} </p>
+      
       </li>
     );
   }
