@@ -22,3 +22,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.article{
+  list-style: none;
+  margin:20px;
+}
+
+.articleImage{
+  float:left;
+}
+
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.source{
+  width: 400px;
+}

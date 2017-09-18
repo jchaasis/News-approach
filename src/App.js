@@ -9,21 +9,26 @@ class App extends Component {
   constructor(props){
     super(props);
 
-
     this.state = {
-      sources: ['bloomberg', 'business insider', 'hacker news']
+      sources: ['bloomberg', 'espn', 'hacker-news']
     }
   }
 
-
   render() {
+
+    let favoriteSources = this.state.sources.map(source => <NewsSource source={source} />)
+
     return (
       <div className="App">
         <div className="App-header">
-
+          <h1> News Approach </h1>
         </div>
-        <NewsSource sources={this.state.sources}/>
-      </div>
+        <div>
+        </div>
+        <div className="main">
+          {favoriteSources}
+        </div>
+        </div>
     );
   }
 }

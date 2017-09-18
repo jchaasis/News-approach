@@ -7,22 +7,13 @@ class NewsSource extends Component {
     super(props);
 
     this.state = {
-      source: '',
+      source: this.props.source,
       newsResults: []
     }
-
   }
 
-//api key: 629ea07b63e54ee296b6cbfab902ecf8
-//bloomberg: https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=629ea07b63e54ee296b6cbfab902ecf8
-
-//business-insider: https://newsapi.org/v1/articles?source=business-insider&sortBy=top&apiKey=629ea07b63e54ee296b6cbfab902ecf8
-
-//hacker-news: GET https://newsapi.org/v1/articles?source=hacker-news&sortBy=top&apiKey=629ea07b63e54ee296b6cbfab902ecf8
-
-
 componentWillMount(){
-  fetch('https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=629ea07b63e54ee296b6cbfab902ecf8')
+  fetch('https://newsapi.org/v1/articles?source=' + this.state.source + '&sortBy=top&apiKey=629ea07b63e54ee296b6cbfab902ecf8')
   .then(response => response.json())
   .then(response => {
 
@@ -34,17 +25,13 @@ componentWillMount(){
 
   render(){
 
-    const sources = this.props.sources;
-
     let stories = this.state.newsResults.map(newstory => <NewsStory story={newstory} />)
 
     return(
-      <div>
-        <h1>Source Title</h1>
+      <div className="container source">
+        <h1>{this.state.source.toUpperCase()}</h1>
         <ul>
-
           {stories}
-
         </ul>
       </div>
     )
